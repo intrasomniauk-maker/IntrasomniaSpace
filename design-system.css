@@ -1,0 +1,943 @@
+/* ============================================
+   INTRASOMNIA - VISUAL DESIGN SYSTEM
+   Contemporary Gallery / Record Label / Editorial
+   ============================================ */
+
+/* ============================================
+   1. DESIGN TOKENS
+   ============================================ */
+
+:root {
+    /* Color Palette */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-grey-100: #f5f5f5;
+    --color-grey-200: #e8e8e8;
+    --color-grey-300: #d1d1d1;
+    --color-grey-400: #a8a8a8;
+    --color-grey-500: #808080;
+    --color-grey-600: #555555;
+    --color-grey-700: #333333;
+    --color-grey-800: #1a1a1a;
+    --color-grey-900: #0f0f0f;
+    
+    /* Accent Colors (Subtle, Non-Trend) */
+    --color-accent-primary: #ffffff;
+    --color-accent-secondary: #e8e8e8;
+    
+    /* Background */
+    --color-bg-primary: #0a0a0a;
+    --color-bg-secondary: #1a1a1a;
+    --color-bg-tertiary: #ffffff;
+    
+    /* Text */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.75);
+    --color-text-tertiary: rgba(255, 255, 255, 0.5);
+    --color-text-disabled: rgba(255, 255, 255, 0.3);
+    
+    /* Border */
+    --color-border-primary: rgba(255, 255, 255, 0.1);
+    --color-border-secondary: rgba(255, 255, 255, 0.05);
+    
+    /* ============================================
+       2. TYPOGRAPHY SCALE
+       ============================================ */
+    
+    /* Font Family */
+    --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-family-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+    
+    /* Font Sizes (Modular Scale 1.125) */
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-md: 1.125rem;     /* 18px */
+    --font-size-lg: 1.25rem;      /* 20px */
+    --font-size-xl: 1.5rem;       /* 24px */
+    --font-size-2xl: 1.75rem;     /* 28px */
+    --font-size-3xl: 2rem;        /* 32px */
+    --font-size-4xl: 2.5rem;      /* 40px */
+    --font-size-5xl: 3.125rem;    /* 50px */
+    --font-size-6xl: 3.5rem;      /* 56px */
+    --font-size-7xl: 4.5rem;      /* 72px */
+    --font-size-8xl: 5.5rem;      /* 88px */
+    
+    /* Font Weight */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Line Height */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --line-height-loose: 2;
+    
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.02em;
+    --letter-spacing-wider: 0.05em;
+    --letter-spacing-widest: 0.1em;
+    
+    /* ============================================
+       3. SPACING SCALE (8px Base)
+       ============================================ */
+    
+    --space-0: 0;
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+    --space-20: 5rem;     /* 80px */
+    --space-24: 6rem;     /* 96px */
+    --space-32: 8rem;     /* 128px */
+    
+    /* ============================================
+       4. BORDER RADIUS
+       ============================================ */
+    
+    --radius-none: 0;
+    --radius-sm: 2px;
+    --radius-base: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-full: 9999px;
+    
+    /* ============================================
+       5. SHADOWS
+       ============================================ */
+    
+    --shadow-none: none;
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* ============================================
+       6. BREAKPOINTS
+       ============================================ */
+    
+    --bp-xs: 0;        /* Mobile first */
+    --bp-sm: 480px;    /* Small mobile */
+    --bp-md: 768px;    /* Tablet */
+    --bp-lg: 1024px;   /* Laptop */
+    --bp-xl: 1280px;   /* Desktop */
+    --bp-2xl: 1536px;  /* Large desktop */
+    
+    /* ============================================
+       7. CONTAINER WIDTHS
+       ============================================ */
+    
+    --container-xs: 20rem;     /* 320px */
+    --container-sm: 24rem;     /* 384px */
+    --container-md: 28rem;     /* 448px */
+    --container-lg: 32rem;     /* 512px */
+    --container-xl: 36rem;     /* 576px */
+    --container-2xl: 42rem;    /* 672px */
+    --container-3xl: 48rem;    /* 768px */
+    --container-4xl: 56rem;    /* 896px */
+    --container-5xl: 64rem;    /* 1024px */
+    --container-6xl: 72rem;    /* 1152px */
+    --container-7xl: 80rem;    /* 1280px */
+    --container-full: 100%;
+    
+    /* ============================================
+       8. TRANSITION & MOTION
+       ============================================ */
+    
+    --transition-fast: 150ms;
+    --transition-base: 200ms;
+    --transition-slow: 300ms;
+    --transition-slower: 500ms;
+    
+    --easing-linear: linear;
+    --easing-ease: ease;
+    --easing-in: cubic-bezier(0.4, 0, 1, 1);
+    --easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* ============================================
+       9. GRID SYSTEM
+       ============================================ */
+    
+    --grid-gap-xs: var(--space-2);
+    --grid-gap-sm: var(--space-4);
+    --grid-gap-md: var(--space-6);
+    --grid-gap-lg: var(--space-8);
+    --grid-gap-xl: var(--space-12);
+    
+    /* ============================================
+       10. Z-INDEX SCALE
+       ============================================ */
+    
+    --z-hide: -1;
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+}
+
+/* ============================================
+   11. RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+/* Heading 1 - Display */
+.h1,
+h1 {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Heading 2 - Page Title */
+.h2,
+h2 {
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Heading 3 - Section */
+.h3,
+h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Heading 4 - Subsection */
+.h4,
+h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Heading 5 - Small */
+.h5,
+h5 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Heading 6 - Tiny */
+.h6,
+h6 {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Paragraph - Body Text */
+.p,
+p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    font-weight: var(--font-weight-regular);
+}
+
+/* Small Text */
+.text-sm,
+small {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+/* Extra Small Text */
+.text-xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+/* Monospace / Code */
+.text-mono,
+code,
+pre {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+/* ============================================
+   12. GRID SYSTEM
+   ============================================ */
+
+.grid {
+    display: grid;
+    gap: var(--grid-gap-md);
+}
+
+.grid-1 {
+    grid-template-columns: 1fr;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-12 {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* Flexible Grid */
+.grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Responsive Grid Gap */
+.grid-gap-xs { gap: var(--grid-gap-xs); }
+.grid-gap-sm { gap: var(--grid-gap-sm); }
+.grid-gap-md { gap: var(--grid-gap-md); }
+.grid-gap-lg { gap: var(--grid-gap-lg); }
+.grid-gap-xl { gap: var(--grid-gap-xl); }
+
+/* ============================================
+   13. CONTAINER & LAYOUT
+   ============================================ */
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+}
+
+@media (min-width: 480px) {
+    .container {
+        max-width: var(--container-sm);
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: var(--container-3xl);
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: var(--container-5xl);
+        padding-left: var(--space-10);
+        padding-right: var(--space-10);
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: var(--container-7xl);
+        padding-left: var(--space-10);
+        padding-right: var(--space-10);
+    }
+}
+
+/* ============================================
+   14. BUTTON SYSTEM
+   ============================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-wide);
+    border-radius: var(--radius-base);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base) var(--easing-in-out);
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Primary Button - Solid White on Black */
+.btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-grey-100);
+    border-color: var(--color-grey-100);
+}
+
+.btn-primary:active:not(:disabled) {
+    background-color: var(--color-grey-200);
+    border-color: var(--color-grey-200);
+    transform: scale(0.98);
+}
+
+/* Secondary Button - Outlined */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-white);
+}
+
+.btn-secondary:active:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(0.98);
+}
+
+/* Tertiary Button - Ghost */
+.btn-tertiary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: transparent;
+}
+
+.btn-tertiary:hover:not(:disabled) {
+    color: var(--color-grey-300);
+}
+
+.btn-tertiary:active:not(:disabled) {
+    color: var(--color-grey-400);
+    transform: scale(0.98);
+}
+
+/* Button Sizes */
+.btn-xs {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-xs);
+}
+
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+}
+
+.btn-base {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-size-base);
+}
+
+.btn-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-md);
+}
+
+.btn-xl {
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--font-size-lg);
+}
+
+/* Full Width Button */
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+/* Icon Button */
+.btn-icon {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+/* ============================================
+   15. CARD SYSTEM
+   ============================================ */
+
+.card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-base) var(--easing-in-out);
+}
+
+.card:hover {
+    border-color: var(--color-border-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Card Sizes */
+.card-compact {
+    padding: var(--space-4);
+}
+
+.card-large {
+    padding: var(--space-8);
+}
+
+/* Card Header */
+.card-header {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border-primary);
+}
+
+.card-header h2,
+.card-header h3 {
+    margin: 0;
+}
+
+/* Card Body */
+.card-body {
+    margin-bottom: var(--space-4);
+}
+
+.card-body:last-child {
+    margin-bottom: 0;
+}
+
+/* Card Footer */
+.card-footer {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border-primary);
+}
+
+/* ============================================
+   16. NAVIGATION SYSTEM
+   ============================================ */
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.nav-horizontal {
+    flex-direction: row;
+    gap: var(--space-6);
+}
+
+.nav-link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-base) var(--easing-in-out);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-white);
+    transition: width var(--transition-base) var(--easing-in-out);
+}
+
+.nav-link:hover {
+    color: var(--color-text-secondary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--color-text-primary);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ============================================
+   17. FORM ELEMENTS
+   ============================================ */
+
+.form-group {
+    margin-bottom: var(--space-6);
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.input,
+.textarea,
+.select {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-base);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-sans);
+    transition: all var(--transition-base) var(--easing-in-out);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--color-text-disabled);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--color-white);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.input:disabled,
+.textarea:disabled,
+.select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================
+   18. HOVER STATES & INTERACTIONS
+   ============================================ */
+
+/* Interactive Elements */
+.interactive {
+    transition: all var(--transition-base) var(--easing-in-out);
+}
+
+.interactive:hover {
+    opacity: 0.85;
+}
+
+.interactive:active {
+    transform: scale(0.98);
+}
+
+/* Hover Lift */
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Hover Highlight */
+.hover-highlight:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Underline */
+.hover-underline {
+    position: relative;
+    transition: color var(--transition-base) var(--easing-in-out);
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-white);
+    transition: width var(--transition-base) var(--easing-in-out);
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Focus Visible */
+*:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   19. MOTION GUIDELINES
+   ============================================ */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn var(--transition-slow) var(--easing-out);
+}
+
+/* Slide Up */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp var(--transition-slow) var(--easing-out);
+}
+
+/* Slide Down */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown var(--transition-slow) var(--easing-out);
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-scale-in {
+    animation: scaleIn var(--transition-slow) var(--easing-out);
+}
+
+/* ============================================
+   20. SPACING UTILITIES
+   ============================================ */
+
+/* Margin */
+.m-0 { margin: var(--space-0); }
+.m-1 { margin: var(--space-1); }
+.m-2 { margin: var(--space-2); }
+.m-4 { margin: var(--space-4); }
+.m-6 { margin: var(--space-6); }
+.m-8 { margin: var(--space-8); }
+
+.mt-0 { margin-top: var(--space-0); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+
+.mb-0 { margin-bottom: var(--space-0); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+
+/* Padding */
+.p-0 { padding: var(--space-0); }
+.p-2 { padding: var(--space-2); }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+
+/* ============================================
+   21. ACCESSIBILITY
+   ============================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    .card {
+        border-width: 2px;
+    }
+    
+    .btn-secondary {
+        border-width: 2px;
+    }
+}
+
+/* ============================================
+   22. LAYOUT PATTERNS
+   ============================================ */
+
+/* Stack */
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.stack-tight {
+    gap: var(--space-2);
+}
+
+.stack-loose {
+    gap: var(--space-8);
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ============================================
+   23. PRINT STYLES
+   ============================================ */
+
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* ============================================
+   24. DARK MODE (DEFAULT)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg-primary: #0a0a0a;
+        --color-bg-secondary: #1a1a1a;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: rgba(255, 255, 255, 0.75);
+        --color-text-tertiary: rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* ============================================
+   25. RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Hide at specific breakpoints */
+@media (max-width: 480px) {
+    .hide-mobile { display: none; }
+}
+
+@media (max-width: 768px) {
+    .hide-tablet { display: none; }
+}
+
+@media (min-width: 1024px) {
+    .hide-desktop { display: none; }
+}
+
+/* Show at specific breakpoints */
+@media (max-width: 480px) {
+    .show-mobile { display: block; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .show-tablet { display: block; }
+}
+
+@media (min-width: 1024px) {
+    .show-desktop { display: block; }
+}
