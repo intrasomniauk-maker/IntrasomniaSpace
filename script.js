@@ -45,6 +45,30 @@ const PRODUCTS = {
         serial: 'INTS007',
         price: 30,
         image: 'MERCHANDISE/Human Sonics Neon Lines YELLOW - FRONT -.png'
+    },
+    'tee-008': {
+        name: 'crewneck long-sleeve t-shirt - Abstract 5',
+        serial: 'INTS008',
+        price: 30,
+        image: 'MERCHANDISE/Crewneck Long-Sleeve T-Shirt - ABSTRACT5 - FRONT.png'
+    },
+    'tee-009': {
+        name: 'drop shoulder cotton t-shirt - Stereo Split',
+        serial: 'INTS009',
+        price: 30,
+        image: 'MERCHANDISE/Drop Shoulder Cotton T-Shirt - STEREO SPLIT - FRONT.png'
+    },
+    'tee-010': {
+        name: 'heavyweight drop shoulder tee - Abstract 4',
+        serial: 'INTS010',
+        price: 30,
+        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt - ABSTRACT4 - FRONT.png'
+    },
+    'tee-011': {
+        name: 'heavyweight drop shoulder tee - Boaz Jachin',
+        serial: 'INTS011',
+        price: 30,
+        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt - BOAZ JACHIN - FRONT.png'
     }
 };
 
