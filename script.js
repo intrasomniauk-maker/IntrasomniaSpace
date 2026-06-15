@@ -32,7 +32,7 @@ const PRODUCTS = {
         name: 'human sonics neon lines - Pink',
         serial: 'INTS005',
         price: 30,
-        image: 'MERCHANDISE/Human Sonics Neon Lines PINK- FRONT.png'
+        image: 'MERCHANDISE/Human Sonics Neon Lines PINK-FRONT.png'
     },
     'tee-006': {
         name: 'human sonics neon lines - Teal',
@@ -44,7 +44,7 @@ const PRODUCTS = {
         name: 'human sonics neon lines - Yellow',
         serial: 'INTS007',
         price: 30,
-        image: 'MERCHANDISE/Human Sonics Neon Lines YELLOW - FRONT -.png'
+        image: 'MERCHANDISE/Human Sonics Neon Lines YELLOW - FRONT.png'
     },
     'tee-008': {
         name: 'crewneck long-sleeve t-shirt - Abstract 5',
@@ -69,6 +69,30 @@ const PRODUCTS = {
         serial: 'INTS011',
         price: 30,
         image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt - BOAZ JACHIN - FRONT.png'
+    },
+    'tee-012': {
+        name: 'crewneck long-sleeve t-shirt - Abstract 1',
+        serial: 'INTS012',
+        price: 30,
+        image: 'MERCHANDISE/Crewneck Long-Sleeve T-Shirt - ABSTRACT1 - FRONT.png'
+    },
+    'tee-013': {
+        name: 'crewneck long-sleeve t-shirt - Abstract 2',
+        serial: 'INTS013',
+        price: 30,
+        image: 'MERCHANDISE/Crewneck Long-Sleeve T-Shirt - ABSTRACT2 - FRONT.png'
+    },
+    'tee-014': {
+        name: 'heavyweight cotton t-shirt - Abstract 1',
+        serial: 'INTS014',
+        price: 30,
+        image: 'MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT1 - Front.png'
+    },
+    'tee-015': {
+        name: 'heavyweight cotton t-shirt - Abstract 3',
+        serial: 'INTS015',
+        price: 30,
+        image: 'MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT3 - FRONT.png'
     }
 };
 
