@@ -17,10 +17,17 @@ interface CheckoutRequest {
 }
 
 export default async (req: Request, _context: Context) => {
-  const apiKey = process.env.SUMUP_API_KEY
-  const merchantCode = process.env.SUMUP_MERCHANT_CODE
+  // Trim so a value that is only whitespace (or has stray spaces) is not
+  // mistaken for a real credential.
+  const apiKey = process.env.SUMUP_API_KEY?.trim()
+  const merchantCode = process.env.SUMUP_MERCHANT_CODE?.trim()
 
   if (!apiKey || !merchantCode) {
+    const missing = [
+      !apiKey && 'SUMUP_API_KEY',
+      !merchantCode && 'SUMUP_MERCHANT_CODE',
+    ].filter(Boolean)
+    console.error('Payment not configured. Missing SumUp credentials:', missing.join(', '))
     return Response.json(
       { error: 'Payment is not configured. Missing SumUp credentials.' },
       { status: 500 },
