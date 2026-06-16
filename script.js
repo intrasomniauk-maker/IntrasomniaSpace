@@ -26,7 +26,7 @@ const PRODUCTS = {
         name: 'heavyweight cotton t-shirt - Abstract 2',
         serial: 'INTS004',
         price: 30,
-        image: '/Heavywieght Cotton T Shirt ABSTRACT2 - Front.png'
+        image: '/Heavyweight Cotton T Shirt ABSTRACT2 - Front.png'
     },
     'tee-005': {
         name: 'human sonics neon lines - Pink',
@@ -38,7 +38,7 @@ const PRODUCTS = {
         name: 'human sonics neon lines - Teal',
         serial: 'INTS006',
         price: 30,
-        image: '/Human Sonics Neon Lines TIEL - FRONT.png'
+        image: '/Human Sonics Neon Lines teal - FRONT.png'
     },
     'tee-007': {
         name: 'human sonics neon lines - Yellow',
@@ -86,13 +86,13 @@ const PRODUCTS = {
         name: 'heavyweight cotton t-shirt - Abstract 1',
         serial: 'INTS014',
         price: 30,
-        image: '/Heavywieght Cotton T Shirt ABSTRACT1 - Front.png'
+        image: '/Heavyweight Cotton T Shirt ABSTRACT1 - Front.png'
     },
     'tee-015': {
         name: 'heavyweight cotton t-shirt - Abstract 3',
         serial: 'INTS015',
         price: 30,
-        image: '/Heavywieght Cotton T Shirt ABSTRACT3 - FRONT.png'
+        image: '/Heavyweight Cotton T Shirt ABSTRACT3 - FRONT.png'
     }
 };
 
