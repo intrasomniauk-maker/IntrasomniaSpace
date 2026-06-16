@@ -1,0 +1,9 @@
+{
+  "name": "intrasomnia",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@netlify/functions": "^4.2.5"
+  }
+}

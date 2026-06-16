@@ -502,6 +502,27 @@ body {
     font-size: 14px;
 }
 
+/* Payment Section */
+.payment-section {
+    margin-top: 16px;
+}
+
+.payment-amount {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.payment-amount strong {
+    color: #000000;
+    font-size: 14px;
+}
+
+#sumup-card {
+    margin-top: 8px;
+}
+
 /* Coming Soon / Placeholder */
 .placeholder-text {
     font-size: 11px;
