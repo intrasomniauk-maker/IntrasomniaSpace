@@ -8,91 +8,91 @@ const PRODUCTS = {
         name: 'heavyweight drop shoulder tee - Black',
         serial: 'INTS001',
         price: 30,
-        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt Black Front.png'
+        image: '/Heavyweight Drop Shoulder Cotton T-Shirt Black Front.png'
     },
     'tee-002': {
         name: 'heavyweight drop shoulder tee - Light Grey',
         serial: 'INTS002',
         price: 30,
-        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt-mockups-3.png'
+        image: '/Heavyweight Drop Shoulder Cotton T-Shirt-mockups-3.png'
     },
     'tee-003': {
         name: 'heavyweight drop shoulder tee - Pink',
         serial: 'INTS003',
         price: 30,
-        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt-Pink Front.png'
+        image: '/Heavyweight Drop Shoulder Cotton T-Shirt-Pink Front.png'
     },
     'tee-004': {
         name: 'heavyweight cotton t-shirt - Abstract 2',
         serial: 'INTS004',
         price: 30,
-        image: 'MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT2 - Front.png'
+        image: '/Heavywieght Cotton T Shirt ABSTRACT2 - Front.png'
     },
     'tee-005': {
         name: 'human sonics neon lines - Pink',
         serial: 'INTS005',
         price: 30,
-        image: 'MERCHANDISE/Human Sonics Neon Lines PINK-FRONT.png'
+        image: '/Human Sonics Neon Lines PINK-FRONT.png'
     },
     'tee-006': {
         name: 'human sonics neon lines - Teal',
         serial: 'INTS006',
         price: 30,
-        image: 'MERCHANDISE/Human Sonics Neon Lines TIEL - FRONT.png'
+        image: '/Human Sonics Neon Lines TIEL - FRONT.png'
     },
     'tee-007': {
         name: 'human sonics neon lines - Yellow',
         serial: 'INTS007',
         price: 30,
-        image: 'MERCHANDISE/Human Sonics Neon Lines YELLOW - FRONT.png'
+        image: '/Human Sonics Neon Lines YELLOW - FRONT.png'
     },
     'tee-008': {
         name: 'crewneck long-sleeve t-shirt - Abstract 5',
         serial: 'INTS008',
         price: 30,
-        image: 'MERCHANDISE/Crewneck Long-Sleeve T-Shirt - ABSTRACT5 - FRONT.png'
+        image: '/Crewneck Long-Sleeve T-Shirt - ABSTRACT5 - FRONT.png'
     },
     'tee-009': {
         name: 'drop shoulder cotton t-shirt - Stereo Split',
         serial: 'INTS009',
         price: 30,
-        image: 'MERCHANDISE/Drop Shoulder Cotton T-Shirt - STEREO SPLIT - FRONT.png'
+        image: '/Drop Shoulder Cotton T-Shirt - STEREO SPLIT - FRONT.png'
     },
     'tee-010': {
         name: 'heavyweight drop shoulder tee - Abstract 4',
         serial: 'INTS010',
         price: 30,
-        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt - ABSTRACT4 - FRONT.png'
+        image: '/Heavyweight Drop Shoulder Cotton T-Shirt - ABSTRACT4 - FRONT.png'
     },
     'tee-011': {
         name: 'heavyweight drop shoulder tee - Boaz Jachin',
         serial: 'INTS011',
         price: 30,
-        image: 'MERCHANDISE/Heavyweight Drop Shoulder Cotton T-Shirt - BOAZ JACHIN - FRONT.png'
+        image: '/Heavyweight Drop Shoulder Cotton T-Shirt - BOAZ JACHIN - FRONT.png'
     },
     'tee-012': {
         name: 'crewneck long-sleeve t-shirt - Abstract 1',
         serial: 'INTS012',
         price: 30,
-        image: 'MERCHANDISE/Crewneck Long-Sleeve T-Shirt - ABSTRACT1 - FRONT.png'
+        image: '/Crewneck Long-Sleeve T-Shirt - ABSTRACT1 - FRONT.png'
     },
     'tee-013': {
         name: 'crewneck long-sleeve t-shirt - Abstract 2',
         serial: 'INTS013',
         price: 30,
-        image: 'MERCHANDISE/Crewneck Long-Sleeve T-Shirt - ABSTRACT2 - FRONT.png'
+        image: '/Crewneck Long-Sleeve T-Shirt - ABSTRACT2 - FRONT.png'
     },
     'tee-014': {
         name: 'heavyweight cotton t-shirt - Abstract 1',
         serial: 'INTS014',
         price: 30,
-        image: 'MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT1 - Front.png'
+        image: '/Heavywieght Cotton T Shirt ABSTRACT1 - Front.png'
     },
     'tee-015': {
         name: 'heavyweight cotton t-shirt - Abstract 3',
         serial: 'INTS015',
         price: 30,
-        image: 'MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT3 - FRONT.png'
+        image: '/Heavywieght Cotton T Shirt ABSTRACT3 - FRONT.png'
     }
 };
 
