@@ -75,6 +75,7 @@
                         <p class="item-serial">serial: INTS005</p>
                         <div class="product-images">
                             <img src="MERCHANDISE/Human Sonics Neon Lines PINK-FRONT.png" alt="front view" class="product-image">
+                            <img src="MERCHANDISE/Human Sonics Neon Lines PINK- BACK.png" alt="back view" class="product-image">
                         </div>
                         <p class="item-meta">£30.00</p>
                     </article>
@@ -96,6 +97,7 @@
                         <p class="item-serial">serial: INTS007</p>
                         <div class="product-images">
                             <img src="MERCHANDISE/Human Sonics Neon Lines YELLOW - FRONT.png" alt="front view" class="product-image">
+                            <img src="MERCHANDISE/Human Sonics Neon Lines YELLOW - BACK.png" alt="back view" class="product-image">
                         </div>
                         <p class="item-meta">£30.00</p>
                     </article>
@@ -183,6 +185,7 @@
                         <p class="item-serial">serial: INTS015</p>
                         <div class="product-images">
                             <img src="MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT3 - FRONT.png" alt="front view" class="product-image">
+                            <img src="MERCHANDISE/Heavywieght Cotton T Shirt ABSTRACT3 - BACK.png" alt="back view" class="product-image">
                         </div>
                         <p class="item-meta">£30.00</p>
                     </article>
@@ -281,6 +284,14 @@
                 </form>
 
                 <div id="formMessage" class="form-message"></div>
+
+                <!-- SumUp Payment Widget (mounted after checkout is created) -->
+                <div id="paymentSection" class="payment-section" style="display: none;">
+                    <div class="divider"></div>
+                    <h3 class="form-title">payment</h3>
+                    <p class="payment-amount">amount due: <strong id="paymentAmount">£0.00</strong></p>
+                    <div id="sumup-card"></div>
+                </div>
             </section>
 
             <!-- Club Nights Section -->
@@ -359,6 +370,16 @@
         </aside>
     </div>
 
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+        <div class="lightbox-overlay" id="lightboxOverlay"></div>
+        <button class="lightbox-close" id="lightboxClose" aria-label="close">close</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="enlarged product view" class="lightbox-image">
+            <p id="lightboxCaption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div id="modal" class="modal hidden">
         <div class="modal-overlay" id="modalOverlay"></div>
@@ -371,6 +392,7 @@
         </div>
     </div>
 
+    <script src="https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

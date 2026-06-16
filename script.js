@@ -1,5 +1,5 @@
 // Configuration
-const SUMUP_PAYMENT_URL = "https://pay.sumup.com/b2c/QINAGS60";
+const CHECKOUT_ENDPOINT = "/api/create-checkout";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mgobrdza";
 
 // Product data with images
@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     setupModal();
     setupForm();
+    setupLightbox();
 });
 
 // Navigation Setup
@@ -179,6 +180,50 @@ function hideModal() {
     modal.classList.add('hidden');
     navLinks.forEach(link => {
         link.classList.remove('active');
+    });
+}
+
+// Lightbox Setup — click any product image to view it enlarged
+function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, caption) {
+        lightboxImage.src = src;
+        lightboxImage.alt = caption ? `${caption} (enlarged)` : 'enlarged product view';
+        lightboxCaption.textContent = caption || '';
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+    }
+
+    // Open when a product image is clicked
+    document.querySelectorAll('.product-image').forEach(img => {
+        img.addEventListener('click', () => {
+            const product = img.closest('.product-item');
+            const title = product ? product.querySelector('.item-title') : null;
+            const view = (img.alt || '').trim();
+            const caption = [title ? title.textContent.trim() : '', view]
+                .filter(Boolean)
+                .join(' — ');
+            openLightbox(img.src, caption);
+        });
+    });
+
+    lightboxOverlay.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+            closeLightbox();
+        }
     });
 }
 
@@ -425,9 +470,9 @@ function redirectToPayment() {
     })
     .then(response => {
         if (response.ok) {
-            // Formspree submission successful
-            showFormSuccess('order: status: received\npayment: status: redirecting');
-            
+            // Order details recorded — now charge the real cart total via SumUp
+            showFormSuccess('order: status: received\npayment: status: loading...');
+
             // Store order data locally for reference
             localStorage.setItem('lastOrder', JSON.stringify({
                 items: shoppingCart,
@@ -435,11 +480,8 @@ function redirectToPayment() {
                 address: shipping_address,
                 total: totalPrice
             }));
-            
-            // Redirect to SumUp after 1 second
-            setTimeout(() => {
-                window.location.href = SUMUP_PAYMENT_URL;
-            }, 1000);
+
+            startPayment(totalPrice, { name: customer_name, email: email });
         } else {
             submitBtn.disabled = false;
             submitBtn.textContent = 'proceed to checkout';
@@ -451,5 +493,74 @@ function redirectToPayment() {
         submitBtn.disabled = false;
         submitBtn.textContent = 'proceed to checkout';
         showFormError('connection error. please try again.');
+    });
+}
+
+// Create a SumUp checkout for the true cart total, then show the payment widget
+function startPayment(totalPrice, customer) {
+    const submitBtn = purchaseForm.querySelector('[type="submit"]');
+
+    fetch(CHECKOUT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            amount: totalPrice,
+            currency: 'GBP',
+            description: `INTRASOMNIA order — ${shoppingCart.length} item(s)`
+        })
+    })
+    .then(response => response.json().then(data => ({ ok: response.ok, data })))
+    .then(({ ok, data }) => {
+        if (!ok || !data.checkoutId) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'proceed to checkout';
+            showFormError(data.error || 'could not start payment. please try again.');
+            return;
+        }
+        showPaymentWidget(data.checkoutId, totalPrice, customer);
+    })
+    .catch(error => {
+        console.error('Checkout error:', error);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'proceed to checkout';
+        showFormError('connection error. please try again.');
+    });
+}
+
+// Mount the SumUp card widget so the customer pays the exact total
+function showPaymentWidget(checkoutId, totalPrice, customer) {
+    const paymentSection = document.getElementById('paymentSection');
+    const paymentAmount = document.getElementById('paymentAmount');
+    const submitBtn = purchaseForm.querySelector('[type="submit"]');
+
+    paymentAmount.textContent = `£${totalPrice.toFixed(2)}`;
+    paymentSection.style.display = 'block';
+    submitBtn.style.display = 'none';
+    showFormSuccess('payment: status: enter your card details below');
+    paymentSection.scrollIntoView({ behavior: 'smooth' });
+
+    if (typeof SumUpCard === 'undefined') {
+        showFormError('payment widget failed to load. please refresh and try again.');
+        return;
+    }
+
+    SumUpCard.mount({
+        id: 'sumup-card',
+        checkoutId: checkoutId,
+        email: customer.email,
+        locale: 'en-GB',
+        onResponse: function (type, body) {
+            if (type === 'success') {
+                showFormSuccess('payment received. thank you — your order is confirmed.');
+                paymentSection.style.display = 'none';
+                shoppingCart = [];
+                updateCartDisplay();
+            } else if (type === 'error' || type === 'fail') {
+                showFormError('payment failed. please check your card details and try again.');
+            }
+        }
     });
 }
