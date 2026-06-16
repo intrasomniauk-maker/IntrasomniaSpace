@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     setupModal();
     setupForm();
+    setupLightbox();
 });
 
 // Navigation Setup
@@ -179,6 +180,50 @@ function hideModal() {
     modal.classList.add('hidden');
     navLinks.forEach(link => {
         link.classList.remove('active');
+    });
+}
+
+// Lightbox Setup — click any product image to view it enlarged
+function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, caption) {
+        lightboxImage.src = src;
+        lightboxImage.alt = caption ? `${caption} (enlarged)` : 'enlarged product view';
+        lightboxCaption.textContent = caption || '';
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+    }
+
+    // Open when a product image is clicked
+    document.querySelectorAll('.product-image').forEach(img => {
+        img.addEventListener('click', () => {
+            const product = img.closest('.product-item');
+            const title = product ? product.querySelector('.item-title') : null;
+            const view = (img.alt || '').trim();
+            const caption = [title ? title.textContent.trim() : '', view]
+                .filter(Boolean)
+                .join(' — ');
+            openLightbox(img.src, caption);
+        });
+    });
+
+    lightboxOverlay.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+            closeLightbox();
+        }
     });
 }
 
